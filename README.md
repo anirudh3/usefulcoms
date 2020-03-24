@@ -27,3 +27,17 @@ copying one instance to another:
 gcloud compute copy-files src dest
 gcloud compute copy-files -r src_folder dest
 ```
+
+
+### finding primary key in pandas
+```python
+# finding primary key
+def key_options(items):
+    return chain.from_iterable(combinations(items, r) for r in range(1, len(items)+1) )
+
+for candidate in key_options(list(data_italy)[1:]):
+    deduped = data_italy.drop_duplicates(candidate)
+
+    if len(deduped.index) == len(data_italy.index):
+        print(','.join(candidate))
+```
